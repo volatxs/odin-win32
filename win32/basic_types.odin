@@ -212,8 +212,8 @@ ulong64 :: builtin.u64
 
 wchar :: builtin.u16
 
-str :: [^]char
-wstr :: [^]wchar
+str :: cstring
+wstr :: cstring16
 
 Unicode_String :: struct {
 	length: ushort,
