@@ -25,7 +25,7 @@ import "core:c"
 // Declarations that depend on the presence of the UNICODE flag and thus have two distinct
 // definitions (for wide or ANSI) will be separately declared, and an alias defaulting to the wide
 // version will be added. For instance, there would be MessageBoxA as well as MessageBoxW
-// declarations, and MessageBox would aliasa MessageBoxW.
+// declarations, and MessageBox would alias MessageBoxW.
 
 // Exceptions to the rules above exist because common sense also does.
 
