@@ -300,8 +300,11 @@ wstr :: cstring16
 
 // From UNICODE_STRING
 Unicode_String :: struct {
+	// From Length
 	length: ushort,
+	// From MaximumLength
 	maximum_length: ushort,
+	// From Buffer
 	buffer: wstr,
 }
 
