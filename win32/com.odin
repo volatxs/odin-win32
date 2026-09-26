@@ -8,7 +8,7 @@ package win32
 foreign import ole32 "system:ole32.lib"
 
 // From COINIT
-Com_Init :: enum dword {
+COM_Init :: enum dword {
 	// From COINIT_APARTMENTTHREADED
 	Apartment_Threaded = 0x2,
 	// From COINIT_MULTITHREADED
@@ -27,7 +27,7 @@ foreign ole32 {
 
 	// From CoInitializeEx
 	@(link_name="CoInitializeEx")
-	com_initialize_ex :: proc(reserved: rawptr, com_init: Com_Init) -> Result ---
+	com_initialize_ex :: proc(reserved: rawptr, com_init: COM_Init) -> Result ---
 
 	// From CoUninitialize
 	@(link_name="CoUninitialize")
