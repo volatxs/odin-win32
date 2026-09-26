@@ -27,12 +27,17 @@ import "core:c"
 // version will be added. For instance, there would be MessageBoxA as well as MessageBoxW
 // declarations, and MessageBox would alias MessageBoxW.
 
+// Most fields or names that are prefixed with types will lose their prefixes. An exception are the
+// handles. So "pvThing" becomes "thing", but "HFILE" becomes "hfile".
+
 // Exceptions to the rules above exist because common sense also does.
 
 // Used to distinguish Win32 from Win64 when defining types.
 @(private) _Win_64 :: size_of(builtin.rawptr) == 8
 
 // NOTE: POINTER_32, POINTER_64, POINTER_SIGNED, POINTER_UNSIGNED will be applied directly.
+
+// NOTE: HRESULT is defined in "result.odin" instead.
 
 // From WORD
 word :: c.ushort
@@ -165,9 +170,6 @@ hpalette :: distinct handle
 
 // From HPEN
 hpen :: distinct handle
-
-// From HRESULT
-hresult :: distinct c.long
 
 // From HRGN
 hrgn :: distinct handle
