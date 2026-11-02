@@ -1,7 +1,6 @@
 package win32
 
 import "base:builtin"
-import "base:runtime"
 
 import "core:c"
 

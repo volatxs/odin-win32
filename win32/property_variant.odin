@@ -1,7 +1,5 @@
 package win32
 
-import "core:c"
-
 // Definitions for the PROPVARIANT and its dependent structs.
 // https://learn.microsoft.com/en-us/windows/win32/api/propidlbase/ns-propidlbase-propvariant
 

@@ -1,7 +1,5 @@
 package win32
 
-import "core:c"
-
 // From HRESULT
 Result :: enum long {
 	// From S_OK
