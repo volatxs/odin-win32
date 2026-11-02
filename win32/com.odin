@@ -760,25 +760,34 @@ Storage_Info :: struct {
 
 @(default_calling_convention="stdcall")
 foreign ole32 {
-	// From CoInitialize
-	@(link_name="CoInitialize")
-	com_initialize :: proc(reserved: rawptr) -> Result ---
-
 	// From CoInitializeEx
-	@(link_name="CoInitializeEx")
-	com_initialize_ex :: proc(reserved: rawptr, com_init: COM_Init_Mask) -> Result ---
+	// https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-coinitializeex
+	com_initialize_ex :: proc(
+		// From pvReserved
+		_reserved: rawptr,
+		// From dwCoInit
+		options: COM_Init_Mask,
+	) -> Result ---
 
 	// From CoUninitialize
-	@(link_name="CoUninitialize")
+	// https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-couninitialize
 	com_uninitialize :: proc() ---
 
-	// From OleInitialize
-	@(link_name="OleInitialize")
-	ole_initialize :: proc(reserved: rawptr) -> Result ---
-
-	// From OleUninitialize
-	@(link_name="OleUninitialize")
-	ole_uninitialize :: proc() ---
+	// From CoCreateInstance
+	// https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-cocreateinstance
+	@(link_name="CoCreateInstance")
+	com_create_instance :: proc(
+		// From rclsid
+		class_id: ^Class_ID,
+		// From pUnkOuter
+		controlling_obj: ^IUnknown,
+		// From dwClsContext
+		ctx: Class_Execution_Context_Mask,
+		// From riid
+		riid: ^Interface_ID,
+		// From ppv
+		out_interface: ^rawptr,
+	) -> Result ---
 }
 
 // From IUnknown
