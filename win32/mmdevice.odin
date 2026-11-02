@@ -107,6 +107,12 @@ Class_Execution_Context_Mask_Server :: Class_Execution_Context_Mask{
 	.Remote_Server,
 }
 
+// From PKEY_Device_FriendlyName
+Property_Key_Device_Friendly_Name := Property_Key {
+	fmt_id = {0xA45C254E, 0xDF1C, 0x4EFD, {0x80, 0x20, 0x67, 0xD1, 0x46, 0xA8, 0x50, 0xE0}},
+	pid = 14,
+}
+
 // From __uuidof(MMDeviceEnumerator)
 MM_Device_Enumerator_Class_ID := Class_ID {
 	0xBCDE0395, 0xE52F, 0x467C, {0x8E, 0x3D, 0xC4, 0x57, 0x92, 0x91, 0x69, 0x2E},
