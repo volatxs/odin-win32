@@ -762,6 +762,7 @@ Storage_Info :: struct {
 foreign ole32 {
 	// From CoInitializeEx
 	// https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-coinitializeex
+	@(link_name="CoInitializeEx")
 	com_initialize_ex :: proc(
 		// From pvReserved
 		_reserved: rawptr,
@@ -771,6 +772,7 @@ foreign ole32 {
 
 	// From CoUninitialize
 	// https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-couninitialize
+	@(link_name="CoUninitialize")
 	com_uninitialize :: proc() ---
 
 	// From CoCreateInstance
