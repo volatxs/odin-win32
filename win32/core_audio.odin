@@ -362,7 +362,7 @@ IType_Lib_VTable :: struct {
 		this: ^IType_Lib,
 		// From pTLibAttr
 		lib_attr: ^^Type_Lib_Attr,
-	)
+	),
 }
 
 // From ITypeLib

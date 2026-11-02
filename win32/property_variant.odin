@@ -608,7 +608,7 @@ Variant :: struct #raw_union {
 				// From pvRecord
 				record_ptr: rawptr,
 				// From pRecInfo
-				irecord_info: ^IRecord_Info
+				irecord_info: ^IRecord_Info,
 			},
 		},
 	},

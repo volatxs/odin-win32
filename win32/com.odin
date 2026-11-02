@@ -730,7 +730,7 @@ Class_ID :: distinct GUID
 Interface_ID :: distinct GUID
 
 // From STGC_DEFAULT
-Storage_Commit_Default :: dword(0);
+Storage_Commit_Default :: dword(0)
 
 // From STATSTG
 Storage_Info :: struct {
