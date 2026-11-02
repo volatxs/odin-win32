@@ -5,7 +5,7 @@ import "base:runtime"
 
 import "core:c"
 
-// Basic Windows types documented in:
+// Basic Windows types including the ones documented in:
 // https://learn.microsoft.com/en-us/windows/win32/winprog/windows-data-types
 
 // The original types are named using screaming snake case, joined uppercase, etc.
@@ -32,6 +32,8 @@ import "core:c"
 
 // Exceptions to the rules above exist because common sense also does.
 
+// TODO: mark struct members with their parent's name, e.g. "From S.xyzAbc", not "From xyzAbc".
+
 // Used to distinguish Win32 from Win64 when defining types.
 @(private) _Win_64 :: size_of(builtin.rawptr) == 8
 
@@ -46,7 +48,7 @@ word :: c.ushort
 atom :: word
 
 // From BOOL
-bool :: c.int
+bool :: long
 
 // From BYTE
 byte :: c.uchar
@@ -80,6 +82,9 @@ dword64 :: builtin.u64
 
 // From FLOAT
 float :: c.float
+
+// From DOUBLE
+double :: c.double
 
 // From HANDLE
 handle :: distinct rawptr
@@ -220,7 +225,7 @@ lgrp_id :: distinct dword
 long :: c.long
 
 // From LONGLONG
-long_long :: builtin.i64 when _Win_64 else c.double
+long_long :: builtin.i64
 
 // From LONG_PTR
 long_ptr :: builtin.i64 when _Win_64 else c.long
@@ -286,7 +291,7 @@ uint64 :: builtin.u64
 ulong :: c.ulong
 
 // From ULONGLONG
-ulong_long :: builtin.u64 when _Win_64 else c.double
+ulong_long :: builtin.u64
 
 // From ULONG32
 ulong32 :: c.uint
@@ -297,7 +302,9 @@ ulong64 :: builtin.u64
 // From WCHAR
 wchar :: builtin.u16
 
+// From LPCSTR
 str :: cstring
+// From LPCWSTR
 wstr :: cstring16
 
 // From UNICODE_STRING
@@ -318,3 +325,41 @@ usn :: long_long
 
 // From WPARAM
 wparam :: distinct uint_ptr
+
+// From LARGE_INTEGER
+Large_Integer :: struct #raw_union {
+	using _: struct {
+		// From LowPart
+		low_part: ulong,
+		// From HighPart
+		high_part: long,
+	},
+	// From u
+	u: struct {
+		// From LowPart
+		low_part: ulong,
+		// From HighPart
+		high_part: long,
+	},
+	// From QuadPart
+	quad_part: long_long,
+}
+
+// From ULARGE_INTEGER
+ULarge_Integer :: struct #raw_union {
+	using _: struct {
+		// From LowPart
+		low_part: ulong,
+		// From HighPart
+		high_part: ulong,
+	},
+	// From u
+	u: struct {
+		// From LowPart
+		low_part: ulong,
+		// From HighPart
+		high_part: ulong,
+	},
+	// From QuadPart
+	quad_part: ulong_long,
+}
