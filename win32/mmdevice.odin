@@ -135,7 +135,7 @@ IMM_Device_VTable :: struct {
 		// From dwClsCtx
 		cls_ctx: Class_Execution_Context_Mask,
 		// From pActivationParams
-		activation_params: Property_Variant,
+		activation_params: ^Property_Variant,
 		// From ppInterface
 		interface: ^rawptr,
 	) -> Result,
