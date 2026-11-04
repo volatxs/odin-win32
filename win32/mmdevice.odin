@@ -298,6 +298,7 @@ IMM_Device_Enumerator_VTable :: struct {
 	) -> Result,
 }
 
+// From IMMDeviceEnumerator
 IMM_Device_Enumerator :: struct #raw_union {
 	iunknown: IUnknown,
 	using imm_device_enumerator_vtable: ^IMM_Device_Enumerator_VTable,
