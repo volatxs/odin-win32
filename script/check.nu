@@ -13,3 +13,5 @@ let command = [
 ]
 
 print $"Running (ansi light_blue)($command | str join ' ')(ansi reset)"
+
+run-external ...$command
