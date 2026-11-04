@@ -2,6 +2,11 @@ package win32
 
 import "core:c"
 
+// From __uuidof(IAudioClient)
+Audio_Client_Interface_ID := Interface_ID {
+	0x1CB9AD4C, 0xDBFA, 0x4C32, {0xB1, 0x78, 0xC2, 0xF5, 0x68, 0xA7, 0x03, 0xB2},
+}
+
 // From AUDCLNT_SHAREMODE
 // https://learn.microsoft.com/en-gb/windows/win32/api/audiosessiontypes/ne-audiosessiontypes-audclnt_sharemode
 Audio_Client_Share_Mode :: enum c.int {
