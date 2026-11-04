@@ -131,7 +131,7 @@ IMM_Device_VTable :: struct {
 	activate: proc "stdcall" (
 		this: ^IMM_Device,
 		// From iid
-		iid: Interface_ID,
+		iid: ^Interface_ID,
 		// From dwClsCtx
 		cls_ctx: Class_Execution_Context_Mask,
 		// From pActivationParams
