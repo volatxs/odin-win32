@@ -45,7 +45,7 @@ Reference_Time :: distinct long_long
 
 // From WAVEFORMATEX
 // https://learn.microsoft.com/en-us/windows/win32/api/mmeapi/ns-mmeapi-waveformatex
-Wave_Format_Ex :: struct c.int {
+Wave_Format_Ex :: struct {
 	// From wFormatTag
 	format: Wave_Format,
 	// From nChannels
@@ -145,7 +145,7 @@ IAudio_Client_VTable :: struct {
 	set_event_handle: proc "stdcall" (
 		this: ^IAudio_Client,
 		// From eventHandle
-		event_handle: handle
+		event_handle: handle,
 	) -> Result,
 
 	// From GetService
